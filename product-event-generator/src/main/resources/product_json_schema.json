@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "products",
+  "type": "object",
+  "properties": {
+    "store_id": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 50
+    },
+    "product_id": {
+      "type": "integer",
+      "minimum": 140764,
+      "maximum": 750233
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 25
+    },
+    "articleType": {
+      "type": "string",
+      "enum": [
+        "shorts",
+        "pants",
+        "shirt",
+        "socks",
+        "shoes",
+        "belt",
+        "jacket",
+        "sweater",
+        "gloves",
+        "sandals",
+        "boots",
+        "hat"
+      ]
+    },
+    "size": {
+      "type": "string",
+      "enum": [
+        "petite",
+        "small",
+        "medium",
+        "large",
+        "extra large"
+      ]
+    },
+    "fashionType": {
+      "type": "string",
+      "enum": [
+        "core",
+        "casual",
+        "business casual",
+        "fashion",
+        "formal"
+      ]
+    },
+    "brandName": {
+      "type": "string",
+      "enum": [
+        "Calvin Klein",
+        "Tommy Hilfiger",
+        "Hagar",
+        "Polo Ralph Lauren",
+        "Tomini",
+        "Jushcke",
+        "De Banke",
+        "Dockers",
+        "Rockhill",
+        "Romagosa",
+        "Adicot",
+        "Lalonde"
+      ]
+    },
+    "baseColor": {
+      "type": "string",
+      "enum": [
+        "black",
+        "white",
+        "pink",
+        "red",
+        "green",
+        "blue",
+        "purple"
+      ]
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "ageGroup": {
+      "type": "string",
+      "enum": [
+        "adult",
+        "child",
+        "infant"
+      ]
+    },
+    "price": {
+      "type": "number",
+      "minimum": 10.00,
+      "maximum": 95.00
+    },
+    "season": {
+      "type": "string",
+      "enum": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ]
+    }
+  },
+  "required": [
+    "store_id",
+    "product_id",
+    "count",
+    "articleType",
+    "size",
+    "fashionType",
+    "brandName",
+    "baseColor",
+    "gender",
+    "ageGroup",
+    "price",
+    "season"
+  ]
+}

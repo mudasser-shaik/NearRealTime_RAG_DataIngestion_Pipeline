@@ -1,0 +1,13 @@
+{
+  "name": "product-event-generator",
+  "config": {
+    "connector.class": "com.kafka.connect.ProductEventSourceConnector",
+    "tasks.max": "1",
+    "topic": "product_events",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "schema.registry.url": "http://schema-registry:8081",
+    "producer.interceptor.classes": "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor",
+    "max.interval": 10
+  }
+}

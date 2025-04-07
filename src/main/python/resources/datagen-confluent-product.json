@@ -1,0 +1,80 @@
+{
+  "connector": {
+    "id": "lcc-3mp0zm",
+    "name": "DatagenSourceConnector_Product",
+    "status": "RUNNING",
+    "type": "source"
+  },
+  "tasks": [
+    {
+      "task": 0,
+      "state": "RUNNING"
+    }
+  ],
+  "configs": [
+    {
+      "config": "cloud.provider",
+      "value": "aws"
+    },
+    {
+      "config": "kafka.api.key",
+      "value": "****************"
+    },
+    {
+      "config": "kafka.topic",
+      "value": "topic_product_updates"
+    },
+    {
+      "config": "transforms.Price_transform.spec",
+      "value": "price:float64"
+    },
+    {
+      "config": "cloud.environment",
+      "value": "prod"
+    },
+    {
+      "config": "kafka.api.secret",
+      "value": "****************"
+    },
+    {
+      "config": "kafka.auth.mode",
+      "value": "KAFKA_API_KEY"
+    },
+    {
+      "config": "kafka.endpoint",
+      "value": "SASL_SSL://pkc-rgm37.us-west-2.aws.confluent.cloud:9092"
+    },
+    {
+      "config": "schema.string",
+      "value": "{\n    \"namespace\": \"product-updates\",\n    \"name\": \"products\",\n    \"type\": \"record\",\n    \"fields\": [\n        {\"name\": \"store_id\", \"type\": {\n                \"type\": \"int\",\n                \"arg.properties\": {\n                    \"range\": {\n                        \"min\": 1,\n                        \"max\": 50\n                    }\n                }\n            }},\n        {\"name\": \"product_id\", \"type\": {\n            \"type\": \"int\",\n            \"arg.properties\": {\n                \"range\": {\n                    \"min\": 140764,\n                    \"max\": 750233\n                }\n            }\n        }},\n        {\"name\": \"count\", \"type\": {\n                \"type\": \"int\",\n                \"arg.properties\": {\n                    \"range\": {\n                        \"min\": 1,\n                        \"max\": 25\n                    }\n                }\n            }},\n      {\"name\": \"articleType\", \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"shorts\",\n            \"pants\",\n            \"shirt\",\n            \"socks\",\n            \"shoes\",\n            \"belt\",\n            \"jacket\",\n            \"sweater\",\n            \"gloves\",\n            \"sandals\",\n            \"boots\",\n            \"hat\"\n          ]\n        }\n      }},\n    {\"name\": \"size\", \"type\": {\n        \"type\": \"string\",\n        \"arg.properties\": {\n          \"options\": [\n            \"petite\",\n            \"small\",\n            \"medium\",\n            \"large\",\n            \"extra large\"\n          ]\n        }\n      }},\n            {\"name\": \"fashionType\", \"type\": {\n                \"type\": \"string\",\n                \"arg.properties\": {\n                    \"options\": [\n                        \"core\",\n                        \"casual\",\n                        \"business casual\",\n                        \"fashion\",\n                        \"formal\"\n                    ]\n                }\n            }},\n            {\"name\": \"brandName\", \"type\": {\n                \"type\": \"string\",\n                \"arg.properties\": {\n                    \"options\": [\n                        \"Calvin Klein\",\n                        \"Tommy Hilfiger\",\n                        \"Hagar\",\n                        \"Polo Ralph Lauren\",\n                        \"Tomini\",\n                        \"Jushcke\",\n                        \"De Banke\",\n                        \"Dockers\",\n                        \"Rockhill\",\n                        \"Romagosa\",\n                        \"Adicot\",\n                        \"Lalonde\"\n                    ]\n                }\n            }},\n            {\"name\": \"baseColor\", \"type\": {\n                \"type\": \"string\",\n                \"arg.properties\": {\n                    \"options\": [\n                        \"black\",\n                        \"white\",\n                        \"pink\",\n                        \"red\",\n                        \"green\",\n                        \"blue\",\n                        \"purple\"\n                    ]\n                }\n            }},\n            {\"name\": \"gender\", \"type\": {\n                \"type\": \"string\",\n                \"arg.properties\": {\n                    \"options\": [\n                        \"male\",\n                        \"female\"\n                    ]\n                }\n            }},\n            {\"name\": \"ageGroup\", \"type\": {\n                \"type\": \"string\",\n                \"arg.properties\": {\n                    \"options\": [\n                        \"adult\",\n                        \"child\",\n                        \"infant\"\n                    ]\n                }\n            }},\n            {\"name\": \"price\", \"type\": {\n                \"type\": \"bytes\",\n                \"logicalType\": \"decimal\",\n                \"precision\": 4,\n                \"scale\": 2,\n                \"arg.properties\": {\n                    \"range\": {\n                        \"min\": 10.00,\n                        \"max\": 95.00\n                    }\n                }\n              }},\n            {\"name\": \"season\", \"type\": {\n                \"type\": \"string\",\n                \"arg.properties\": {\n                    \"options\": [\n                        \"spring\",\n                        \"summer\",\n                        \"fall\",\n                        \"winter\"\n                    ]\n                }\n            }}\n    ]\n}"
+    },
+    {
+      "config": "connector.class",
+      "value": "DatagenSource"
+    },
+    {
+      "config": "name",
+      "value": "DatagenSourceConnector_Product"
+    },
+    {
+      "config": "tasks.max",
+      "value": "1"
+    },
+    {
+      "config": "transforms",
+      "value": "Price_transform"
+    },
+    {
+      "config": "transforms.Price_transform.type",
+      "value": "org.apache.kafka.connect.transforms.Cast$Value"
+    },
+    {
+      "config": "kafka.region",
+      "value": "us-west-2"
+    },
+    {
+      "config": "output.data.format",
+      "value": "JSON_SR"
+    }
+  ]
+}

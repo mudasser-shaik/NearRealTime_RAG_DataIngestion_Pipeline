@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-connect-config
+data:
+  connect-distributed.properties: |
+    bootstrap.servers=kafka:9092
+    group.id=connect-cluster
+    key.converter=org.apache.kafka.connect.json.JsonConverter
+    value.converter=org.apache.kafka.connect.json.JsonConverter
+    key.converter.schemas.enable=false
+    value.converter.schemas.enable=false
+    offset.storage.topic=connect-offsets
+    offset.storage.replication.factor=1
+    config.storage.topic=connect-configs
+    config.storage.replication.factor=1
+    status.storage.topic=connect-status
+    status.storage.replication.factor=1
+    producer.interceptor.classes=io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor
+    consumer.interceptor.classes=io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
+    plugin.path=/usr/share/java,/usr/share/confluent-hub-components,/usr/share/java/kafka-connect-source
+    # Rest API settings
+    rest.port=8083
+    rest.advertised.host.name=kafka-connect
+    rest.advertised.port=8083
+
+  product-event-generator.json: |
+    {
+      "name": "product-event-generator",
+      "config": {
+        "connector.class": "com.kafka.connect.ProductEventSourceConnector",
+        "tasks.max": "1",
+        "topic": "product-events",
+        "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "key.converter.schemas.enable": "false",
+        "value.converter.schemas.enable": "false"
+      }
+    }

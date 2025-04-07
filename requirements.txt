@@ -1,0 +1,6 @@
+pymongo[srv]
+sentence-transformers
+openai==1.66.3
+tabulate
+confluent-kafka==2.8.2
+pyspark==3.5.5

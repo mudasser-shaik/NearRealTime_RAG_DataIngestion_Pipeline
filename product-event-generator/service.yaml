@@ -1,0 +1,15 @@
+# kafka-connect.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-connect
+  labels:
+    app: kafka-connect
+spec:
+  ports:
+    - port: 8083
+      targetPort: 8083
+      name: http
+  selector:
+    app: kafka-connect
+  type: ClusterIP
