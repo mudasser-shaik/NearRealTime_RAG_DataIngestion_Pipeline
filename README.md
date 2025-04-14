@@ -17,6 +17,7 @@ The architecture consists of the following key components:
    1. Finally, the embedded data is stored in MongoDB, which serves as a vector database. This allows for efficient storage and retrieval of high-dimensional data, facilitating quick access to the embedded events for downstream applications.
 
 The overview of the near real-time RAG ingestion pipeline, highlighting the flow of data from event production to storage in a vector database. By utilizing Kafka for event streaming, Spark/Apache Beam for ETL, and BERT for embedding, this pipeline is designed to handle real-time data processing efficiently and effectively.
+![Architecture Diagram.png](src%2Fmain%2Fpython%2Fresources%2FArchitecture_diagram.png)
 
 ### Prerequisites
 #### Kafka connect Deployment:
